@@ -25,6 +25,18 @@ public class WelcomeActivity extends AppCompatActivity {
                 goToLogin();
             }
         });
+        mRegistration.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                goToRegistration();
+            }
+        });
+    }
+
+    private void goToRegistration() {
+        Intent intent = new Intent(this, RegistrationActivity.class);
+        startActivity(intent);
     }
 
     private void goToLogin() {
