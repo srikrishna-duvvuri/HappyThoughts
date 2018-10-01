@@ -6,6 +6,7 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.DataSetObserver;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -24,11 +25,14 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -50,6 +54,9 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private Spinner mUserTypeView;
+
+    private String[] userTypes = {"User", "Location Employee", "Admin"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +77,11 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
                 return false;
             }
         });
+
+        mUserTypeView = (Spinner) findViewById(R.id.spinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, userTypes);
+        adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+        mUserTypeView.setAdapter(adapter);
 
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
