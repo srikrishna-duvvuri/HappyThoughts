@@ -54,7 +54,7 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
     private AutoCompleteTextView mEmailView;
     private EditText mPasswordView;
     private View mProgressView;
-    private View mLoginFormView;
+    private View mRegistrationFormView;
     private Spinner mUserTypeView;
 
     public String[] userTypes = {"User", "Location Employee", "Admin", "Manager"};
@@ -92,8 +92,8 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
             }
         });
 
-        mLoginFormView = findViewById(R.id.login_form);
-        mProgressView = findViewById(R.id.login_progress);
+        mRegistrationFormView = findViewById(R.id.registration_form);
+        mProgressView = findViewById(R.id.registration_progress);
     }
 
     @Override
@@ -205,12 +205,12 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
             int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
 
-            mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
-            mLoginFormView.animate().setDuration(shortAnimTime).alpha(
+            mRegistrationFormView.setVisibility(show ? View.GONE : View.VISIBLE);
+            mRegistrationFormView.animate().setDuration(shortAnimTime).alpha(
                     show ? 0 : 1).setListener(new AnimatorListenerAdapter() {
                 @Override
                 public void onAnimationEnd(Animator animation) {
-                    mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
+                    mRegistrationFormView.setVisibility(show ? View.GONE : View.VISIBLE);
                 }
             });
 
@@ -226,7 +226,7 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
             // The ViewPropertyAnimator APIs are not available, so simply show
             // and hide the relevant UI components.
             mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-            mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
+            mRegistrationFormView.setVisibility(show ? View.GONE : View.VISIBLE);
         }
     }
 
