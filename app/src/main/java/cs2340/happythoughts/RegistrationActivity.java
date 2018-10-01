@@ -56,7 +56,7 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
     private View mLoginFormView;
     private Spinner mUserTypeView;
 
-    private String[] userTypes = {"User", "Location Employee", "Admin"};
+    public String[] userTypes = {"User", "Location Employee", "Admin"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
