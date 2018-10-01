@@ -79,7 +79,7 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
         });
 
         mUserTypeView = (Spinner) findViewById(R.id.spinner);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, userTypes);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.simple_spinner_item, userTypes);
         adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         mUserTypeView.setAdapter(adapter);
 
