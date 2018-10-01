@@ -329,10 +329,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             }
 
             SharedPreferences preferences = getSharedPreferences("Login", 0);
-            String user = preferences.getString("username", mEmail);
-            String pass = preferences.getString("password", mPassword);
+            String user = preferences.getString("username", null);
+            String pass = preferences.getString("password", null);
 
-            return !user.isEmpty() || !pass.isEmpty();
+            return TextUtils.equals(RegistrationActivity.credentials.get(user), pass);
         }
 
         @Override

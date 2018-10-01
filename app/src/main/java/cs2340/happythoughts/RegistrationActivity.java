@@ -1,5 +1,7 @@
 package cs2340.happythoughts;
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
@@ -28,6 +30,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -39,7 +43,9 @@ import android.widget.TextView;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -57,7 +63,10 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
     private View mRegistrationFormView;
     private Spinner mUserTypeView;
 
-    public String[] userTypes = {"User", "Location Employee", "Admin", "Manager"};
+    private String _userType;
+    private String[] userTypes = {"User", "Location Employee", "Admin", "Manager"};
+
+    public static HashMap<String, String> credentials;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +92,17 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.simple_spinner_item, userTypes);
         adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         mUserTypeView.setAdapter(adapter);
+        mUserTypeView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                _userType = (String) parent.getSelectedItem();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                _userType = "";
+            }
+        });
 
         Button mEmailRegisterButton = (Button) findViewById(R.id.email_registration_button);
         mEmailRegisterButton.setOnClickListener(new OnClickListener() {
@@ -168,6 +188,11 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
         } else if (!isEmailValid(email)) {
             mEmailView.setError(getString(R.string.error_invalid_email));
             focusView = mEmailView;
+            cancel = true;
+        }
+
+        if (TextUtils.isEmpty(_userType)) {
+            mEmailView.setError("Specify a user type");
             cancel = true;
         }
 
@@ -273,7 +298,6 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
         mEmailView.setAdapter(adapter);
     }
 
-
     private interface ProfileQuery {
         String[] PROJECTION = {
                 ContactsContract.CommonDataKinds.Email.ADDRESS,
@@ -287,6 +311,13 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
     private void goToLoginScreen() {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
+    }
+
+    private void registerUserAndPass(String mUser, String mPass) {
+        if (credentials == null) {
+            credentials = new HashMap<>();
+        }
+        credentials.put(mUser, mPass);
     }
 
     /**
@@ -323,9 +354,7 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
             showProgress(false);
 
             if (success) {
-                SharedPreferences settings = getSharedPreferences("Login", 0);
-                settings.edit().putString("username", mEmail).apply();
-                settings.edit().putString("password", mPassword).apply();
+                registerUserAndPass(mEmail, mPassword);
                 goToLoginScreen();
             }
         }
