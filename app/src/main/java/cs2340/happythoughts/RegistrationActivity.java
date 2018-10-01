@@ -83,8 +83,8 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
         adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         mUserTypeView.setAdapter(adapter);
 
-        Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
-        mEmailSignInButton.setOnClickListener(new OnClickListener() {
+        Button mEmailRegisterButton = (Button) findViewById(R.id.email_registration_button);
+        mEmailRegisterButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 attemptLogin();
