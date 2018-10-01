@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.DataSetObserver;
 import android.support.annotation.NonNull;
@@ -71,7 +72,7 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
                 if (id == EditorInfo.IME_ACTION_DONE || id == EditorInfo.IME_NULL) {
-                    attemptLogin();
+                    register();
                     return true;
                 }
                 return false;
@@ -87,7 +88,7 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
         mEmailRegisterButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                attemptLogin();
+                register();
             }
         });
 
@@ -136,7 +137,7 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
      * If there are form errors (invalid email, missing fields, etc.), the
      * errors are presented and no actual login attempt is made.
      */
-    private void attemptLogin() {
+    private void register() {
         if (mRegisterTask != null) {
             return;
         }
@@ -283,8 +284,8 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
         int IS_PRIMARY = 1;
     }
 
-    private void goToMainActivity() {
-        Intent intent = new Intent(this, MainActivity.class);
+    private void goToLoginScreen() {
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
 
@@ -322,10 +323,10 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
             showProgress(false);
 
             if (success) {
-                goToMainActivity();
-            } else {
-                mPasswordView.setError(getString(R.string.error_incorrect_password));
-                mPasswordView.requestFocus();
+                SharedPreferences settings = getSharedPreferences("Login", 0);
+                settings.edit().putString("username", mEmail).apply();
+                settings.edit().putString("password", mPassword).apply();
+                goToLoginScreen();
             }
         }
 

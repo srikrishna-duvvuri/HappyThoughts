@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -52,9 +53,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * A dummy authentication store containing known user names and passwords.
      * TODO: remove after connecting to a real authentication system.
      */
-    private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "user", "pass"
-    };
+
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
@@ -329,12 +328,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 return false;
             }
 
-            for (int i = 0; i < 2; i++) {
-                return TextUtils.equals(mEmail, DUMMY_CREDENTIALS[0]) && TextUtils.equals(mPassword, DUMMY_CREDENTIALS[1]);
-            }
+            SharedPreferences preferences = getSharedPreferences("Login", 0);
+            String user = preferences.getString("username", mEmail);
+            String pass = preferences.getString("password", mPassword);
 
-            // TODO: register the new account here.
-            return true;
+            return !user.isEmpty() || !pass.isEmpty();
         }
 
         @Override
