@@ -111,7 +111,7 @@ public class Location {
     }
 
     public void setPhoneNumber(String phoneNumber) {
-        this.phone = phone;
+        this.phone = phoneNumber;
     }
 
     public String getWebsite() {

@@ -57,8 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("address", "Address: " + locations.get(position).
                         getStreetAddress() + ", " + locations.get(position).getCity() + ", " +
                         locations.get(position).getZip());
-                intent.putExtra("phone", locations.get(position).getPhoneNumber());
-                intent.putExtra("website", locations.get(position).getWebsite());
+                intent.putExtra("phone", "Phone: " + locations.get(position).getPhoneNumber());
                 intent.putExtra("coordinates", "Coordinates: (" + Double.toString(
                         locations.get(position).getLatitude()) + ", " + Double.toString(
                         locations.get(position).getLongitude()) + ")");
