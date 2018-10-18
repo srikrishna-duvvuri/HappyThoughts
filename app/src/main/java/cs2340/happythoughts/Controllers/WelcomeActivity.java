@@ -1,10 +1,12 @@
-package cs2340.happythoughts;
+package cs2340.happythoughts.Controllers;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import cs2340.happythoughts.R;
 
 public class WelcomeActivity extends AppCompatActivity {
 

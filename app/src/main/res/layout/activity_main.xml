@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Controllers.MainActivity">
 
     <Button
         android:id="@+id/logoutButton"
@@ -15,4 +15,12 @@
         android:backgroundTint="?attr/colorPrimaryDark"
         android:text="Logout"
         android:textColor="@android:color/white" />
+
+    <ListView
+        android:id="@+id/locationList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/logoutButton"/>
+
+
 </RelativeLayout>

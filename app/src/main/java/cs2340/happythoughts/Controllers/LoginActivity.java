@@ -1,11 +1,9 @@
-package cs2340.happythoughts;
+package cs2340.happythoughts.Controllers;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -32,10 +30,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import cs2340.happythoughts.R;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -301,6 +299,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private void goToMainActivity() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
 
     /**
@@ -325,6 +324,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 // Simulate network access.
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
+                return false;
+            }
+
+            if (RegistrationActivity.credentials == null || RegistrationActivity.credentials.isEmpty()) {
                 return false;
             }
 
