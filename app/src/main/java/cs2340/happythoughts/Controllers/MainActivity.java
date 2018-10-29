@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void addDonation() {
-        Intent intent = new Intent(this, WelcomeActivity.class);
+        Intent intent = new Intent(this, AddDonationActivity.class);
         startActivity(intent);
     }
 
