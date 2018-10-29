@@ -20,6 +20,7 @@ import cs2340.happythoughts.R;
 
 public class MainActivity extends AppCompatActivity {
     private Button mLogoutButton;
+    private Button mAddDonation;
     private ArrayList<Location> locations;
     private ListView locationListView;
 
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupViews() {
         mLogoutButton = findViewById(R.id.logoutButton);
+        mAddDonation = findViewById(R.id.addDonationButtom);
         locations = new ArrayList<>();
         readLocationData();
         locationListView = findViewById(R.id.locationList);
@@ -45,6 +47,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 logout();
+            }
+        });
+
+        mAddDonation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addDonation();
             }
         });
 
@@ -64,6 +73,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void addDonation() {
+        Intent intent = new Intent(this, WelcomeActivity.class);
+        startActivity(intent);
     }
 
     private void logout() {
