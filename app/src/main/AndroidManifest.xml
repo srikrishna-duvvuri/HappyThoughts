@@ -25,7 +25,8 @@
         <activity android:name=".Controllers.MainActivity" />
         <activity android:name=".Controllers.RegistrationActivity" />
         <activity android:name=".Controllers.LocationDetailsActivity" />
-        <activity android:name=".Controllers.AddDonationActivity"></activity>
+        <activity android:name=".Controllers.AddDonationActivity" />
+        <activity android:name=".Controllers.ItemDetailsActivity"></activity>
     </application>
 
 </manifest>
