@@ -1,9 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Controllers.AddDonationActivity">
 
-</android.support.constraint.ConstraintLayout>
+
+    <Spinner
+        android:id="@+id/LocationSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <Spinner
+        android:id="@+id/ItemSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/LocationSpinner"/>
+
+    <EditText
+        android:id="@+id/TimeStamp"
+        android:hint="Enter Time of Donation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="time"
+        android:layout_below="@id/ItemSpinner"/>
+
+
+    <EditText
+        android:id="@+id/ShortDescription"
+        android:hint="Enter Short Description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_below="@id/TimeStamp"/>
+
+    <EditText
+        android:id="@+id/FullDescription"
+        android:hint="Enter Full Description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_below="@id/ShortDescription"/>
+
+    <EditText
+        android:id="@+id/Value"
+        android:hint="Enter Amount of Donation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:layout_below="@id/FullDescription"/>
+
+    <Button
+        android:id="@+id/Add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Donation"
+        android:layout_below="@id/Value"/>
+
+
+</RelativeLayout>
