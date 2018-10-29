@@ -17,7 +17,7 @@
         android:textColor="@android:color/white" />
 
     <Button
-        android:id="@+id/addDonationButtom"
+        android:id="@+id/addDonationButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"

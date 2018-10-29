@@ -10,12 +10,16 @@
         android:id="@+id/LocationDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textSize="16dp"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/ShortDescriptionDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textSize="16dp"
         android:text="TextView"
         android:layout_below="@+id/LocationDisplay"/>
 
@@ -23,6 +27,8 @@
         android:id="@+id/LongDescriptionDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textSize="16dp"
         android:text="TextView"
         android:layout_below="@id/ShortDescriptionDisplay"/>
 
@@ -30,6 +36,8 @@
         android:id="@+id/AmountDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textSize="16dp"
         android:text="TextView"
         android:layout_below="@+id/LongDescriptionDisplay"/>
 
@@ -37,6 +45,17 @@
         android:id="@+id/TimeStampDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textSize="16dp"
         android:text="TextView"
         android:layout_below="@+id/AmountDisplay"/>
+
+    <TextView
+        android:id="@+id/TypeDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textSize="16dp"
+        android:text="TextView"
+        android:layout_below="@+id/TimeStampDisplay"/>
 </RelativeLayout>

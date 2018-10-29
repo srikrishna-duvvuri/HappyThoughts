@@ -15,14 +15,17 @@ import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 
+import cs2340.happythoughts.Models.DonationItem;
 import cs2340.happythoughts.Models.Location;
 import cs2340.happythoughts.R;
 
 public class MainActivity extends AppCompatActivity {
     private Button mLogoutButton;
     private Button mAddDonation;
-    private ArrayList<Location> locations;
+    private static ArrayList<Location> locations;
     private ListView locationListView;
+    public static ArrayList<DonationItem> donationsList = new ArrayList<>();
+    public static String currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +37,17 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupViews() {
         mLogoutButton = findViewById(R.id.logoutButton);
-        mAddDonation = findViewById(R.id.addDonationButtom);
+        mAddDonation = findViewById(R.id.addDonationButton);
         locations = new ArrayList<>();
         readLocationData();
         locationListView = findViewById(R.id.locationList);
         LocationListAdapter adapter = new LocationListAdapter(this, R.layout.layout_list_item, locations);
         locationListView.setAdapter(adapter);
+
+        mAddDonation.setEnabled(false);
+        if(RegistrationActivity.userTypeForUser.get(LoginActivity.currentUser).equals("Location Employee")) {
+            mAddDonation.setEnabled(true);
+        }
     }
 
     private void setupListeners() {
@@ -112,5 +120,9 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static ArrayList<Location> getLocations() {
+        return locations;
     }
 }

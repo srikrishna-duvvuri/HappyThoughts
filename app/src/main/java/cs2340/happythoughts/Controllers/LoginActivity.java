@@ -62,6 +62,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    public static String currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -340,6 +341,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
 
             if (success) {
+                currentUser  = mEmail;
                 goToMainActivity();
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));

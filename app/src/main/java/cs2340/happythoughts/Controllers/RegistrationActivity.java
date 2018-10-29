@@ -57,6 +57,7 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
     private String[] userTypes = {"User", "Location Employee", "Admin", "Manager"};
 
     public static HashMap<String, String> credentials;
+    public static HashMap<String, String> userTypeForUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -194,7 +195,7 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-            mRegisterTask = new UserRegistrationTask(email, password);
+            mRegisterTask = new UserRegistrationTask(email, password, _userType);
             mRegisterTask.execute((Void) null);
         }
     }
@@ -310,6 +311,14 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
         credentials.put(mUser, mPass);
     }
 
+    private void registerUserAndType(String mUser, String mType) {
+        if (userTypeForUser == null) {
+            userTypeForUser = new HashMap<>();
+        }
+        userTypeForUser.put(mUser, mType);
+    }
+
+
     /**
      * Represents an asynchronous registration task used to register
      * the user.
@@ -318,10 +327,12 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
 
         private final String mEmail;
         private final String mPassword;
+        private final String mUserType;
 
-        UserRegistrationTask(String email, String password) {
+        UserRegistrationTask(String email, String password, String userType) {
             mEmail = email;
             mPassword = password;
+            mUserType = userType;
         }
 
         @Override
@@ -345,6 +356,7 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
 
             if (success) {
                 registerUserAndPass(mEmail, mPassword);
+                registerUserAndType(mEmail, mUserType);
                 goToLoginScreen();
             }
         }

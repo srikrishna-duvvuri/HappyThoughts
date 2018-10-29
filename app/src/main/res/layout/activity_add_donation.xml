@@ -10,14 +10,13 @@
     <Spinner
         android:id="@+id/LocationSpinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="wrap_content" />
 
     <Spinner
         android:id="@+id/ItemSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/LocationSpinner"/>
+        android:layout_below="@id/LocationSpinner"/>
 
     <EditText
         android:id="@+id/TimeStamp"
@@ -57,11 +56,20 @@
         android:layout_below="@id/FullDescription"/>
 
     <Button
-        android:id="@+id/Add"
+        android:id="@+id/addDonation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add Donation"
         android:layout_below="@id/Value"/>
+
+    <Button
+        android:id="@+id/cancelDonation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/addDonation"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@id/Value"
+        android:text="Cancel" />
 
 
 </RelativeLayout>
