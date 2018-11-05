@@ -14,7 +14,9 @@ import android.widget.TextView;
 import org.w3c.dom.Text;
 
 import cs2340.happythoughts.Models.DonationItem;
+import cs2340.happythoughts.Models.DonationItemsManager;
 import cs2340.happythoughts.Models.Location;
+import cs2340.happythoughts.Models.LocationsManager;
 import cs2340.happythoughts.R;
 
 public class AddDonationActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -27,6 +29,8 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
     private Spinner itemType;
     private Button add;
     private Button cancel;
+    private DonationItemsManager donationItemsManager = DonationItemsManager.getInstance();
+    private LocationsManager locationsManager = LocationsManager.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +63,7 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
                         fullDescription.getText().toString(), value.getText().toString(),
                         itemType.getSelectedItem().toString());
                 MainActivity.donationsList.add(item);
+                donationItemsManager.getDonations().add(item);
                 Intent intent = new Intent(AddDonationActivity.this, MainActivity.class);
                 startActivity(intent);
             }

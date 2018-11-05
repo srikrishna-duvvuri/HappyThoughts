@@ -16,7 +16,9 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 
 import cs2340.happythoughts.Models.DonationItem;
+import cs2340.happythoughts.Models.DonationItemsManager;
 import cs2340.happythoughts.Models.Location;
+import cs2340.happythoughts.Models.LocationsManager;
 import cs2340.happythoughts.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
     private ListView locationListView;
     public static ArrayList<DonationItem> donationsList = new ArrayList<>();
     public static String currentUser;
+    private LocationsManager locationsManager = LocationsManager.getInstance();
+    private DonationItemsManager donationItemsManager = DonationItemsManager.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,6 +134,7 @@ public class MainActivity extends AppCompatActivity {
                 location.setPhoneNumber(tokens[9]);
                 location.setWebsite(tokens[10]);
                 locations.add(location);
+                locationsManager.addLocation(location);
             }
         } catch (IOException e) {
             e.printStackTrace();

@@ -72,7 +72,7 @@ public class LocationDetailsActivity extends AppCompatActivity {
                 intent.putExtra("fulld", localItems.get(position).getFullDescription());
                 intent.putExtra("value", localItems.get(position).getValue());
                 intent.putExtra("time", localItems.get(position).getTime());
-                intent.putExtra("type", localItems.get(position).getValue());
+                intent.putExtra("type", localItems.get(position).getCategory());
                 startActivity(intent);
             }
         });
