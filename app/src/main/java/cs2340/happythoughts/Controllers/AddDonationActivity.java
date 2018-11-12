@@ -25,8 +25,6 @@ import cs2340.happythoughts.Models.Location;
 import cs2340.happythoughts.Models.LocationsManager;
 import cs2340.happythoughts.R;
 
-import static cs2340.happythoughts.Controllers.MainActivity.currentUser;
-
 public class AddDonationActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private TextView time;

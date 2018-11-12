@@ -2,8 +2,8 @@ package cs2340.happythoughts.Controllers;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -12,12 +12,9 @@ import android.widget.ListView;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.ObjectInputStream;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mLogoutButton;
     private Button mAddDonation;
     private Button mSearchDonation;
+    private Button mMapButton;
     private static ArrayList<Location> locations;
     private ListView locationListView;
     public static ArrayList<DonationItem> donationsList = new ArrayList<>();
@@ -57,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         mLogoutButton = findViewById(R.id.logoutButton);
         mAddDonation = findViewById(R.id.addDonationButton);
         mSearchDonation = findViewById(R.id.searchButton);
+        mMapButton = findViewById(R.id.mapButton);
         locations = new ArrayList<>();
         readLocationData();
         locationListView = findViewById(R.id.locationList);
@@ -91,6 +90,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        mMapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToMap();
+            }
+        });
+
         locationListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -107,6 +113,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void goToMap() {
+        Intent intent = new Intent(this, MapsActivity.class);
+        startActivity(intent);
     }
 
     private void searchDonation() {
