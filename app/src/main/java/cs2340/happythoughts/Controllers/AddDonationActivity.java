@@ -1,6 +1,7 @@
 package cs2340.happythoughts.Controllers;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,13 +12,20 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+
 import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import cs2340.happythoughts.Models.DonationItem;
 import cs2340.happythoughts.Models.DonationItemsManager;
 import cs2340.happythoughts.Models.Location;
 import cs2340.happythoughts.Models.LocationsManager;
 import cs2340.happythoughts.R;
+
+import static cs2340.happythoughts.Controllers.MainActivity.currentUser;
 
 public class AddDonationActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -29,13 +37,17 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
     private Spinner itemType;
     private Button add;
     private Button cancel;
-    private DonationItemsManager donationItemsManager = DonationItemsManager.getInstance();
+    private DonationItemsManager donationItemsManager;
     private LocationsManager locationsManager = LocationsManager.getInstance();
+    private ArrayList<DonationItem> donationItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_donation);
+
+        donationItemsManager = DonationItemsManager.getInstance();
+        getDonationItemsManager();
 
         time = (EditText)findViewById(R.id.TimeStamp);
         shortDescription = (EditText)findViewById(R.id.ShortDescription);
@@ -64,6 +76,7 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
                         itemType.getSelectedItem().toString());
                 MainActivity.donationsList.add(item);
                 donationItemsManager.getDonations().add(item);
+                storeDonations();
                 Intent intent = new Intent(AddDonationActivity.this, MainActivity.class);
                 startActivity(intent);
             }
@@ -77,6 +90,25 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
                 startActivity(intent);
             }
         });
+    }
+
+    private void getDonationItemsManager() {
+        SharedPreferences mPrefs = getSharedPreferences("donationItemsData", MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = mPrefs.getString("donationItems", "");
+        donationItems = (ArrayList<DonationItem>) gson.fromJson(json, ArrayList.class);
+        if (donationItems != null) {
+            donationItemsManager.setDonations(donationItems);
+        }
+    }
+
+    private void storeDonations() {
+        SharedPreferences mPrefs = getSharedPreferences("donationItemsData", MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = gson.toJson(donationItemsManager.getDonations());
+        SharedPreferences.Editor editor = mPrefs.edit();
+        editor.putString("donationItems", json);
+        editor.commit();
     }
 
     @Override

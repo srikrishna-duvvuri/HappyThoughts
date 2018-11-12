@@ -1,6 +1,7 @@
 package cs2340.happythoughts.Controllers;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,12 +9,18 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.google.gson.Gson;
+
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import cs2340.happythoughts.Models.DonationItem;
 import cs2340.happythoughts.Models.DonationItemsManager;
@@ -31,11 +38,17 @@ public class MainActivity extends AppCompatActivity {
     public static String currentUser;
     private LocationsManager locationsManager = LocationsManager.getInstance();
     private DonationItemsManager donationItemsManager = DonationItemsManager.getInstance();
+    private HashMap<String, String> userTypeForUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        try {
+            populateCredentials();
+        } catch(Exception e) {
+            throw new RuntimeException("Problem with credentials population!");
+        }
         setupViews();
         setupListeners();
     }
@@ -51,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         locationListView.setAdapter(adapter);
 
         mAddDonation.setEnabled(false);
-        if(RegistrationActivity.userTypeForUser.get(LoginActivity.currentUser).equals("Location Employee")) {
+        if(userTypeForUser.get(LoginActivity.currentUser).equals("Location Employee")) {
             mAddDonation.setEnabled(true);
         }
     }
@@ -143,5 +156,13 @@ public class MainActivity extends AppCompatActivity {
 
     public static ArrayList<Location> getLocations() {
         return locations;
+    }
+
+
+    private void populateCredentials() throws Exception{
+        SharedPreferences mPrefs = getSharedPreferences("userData", MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = mPrefs.getString("userTypeForUser", "");
+        userTypeForUser = (HashMap<String, String>) gson.fromJson(json, HashMap.class);
     }
 }

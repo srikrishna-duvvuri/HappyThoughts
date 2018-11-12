@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -30,7 +31,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import cs2340.happythoughts.R;
@@ -62,6 +69,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private HashMap<String,String> credentials;
     public static String currentUser;
 
     @Override
@@ -71,6 +79,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
+        try {
+            populateCredentials();
+        } catch (Exception e) {
+            throw new RuntimeException("Error with credentials");
+        }
 
         mPasswordView = (EditText) findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -107,6 +120,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
 
         getLoaderManager().initLoader(0, null, this);
+    }
+
+    private void populateCredentials() throws Exception {
+        SharedPreferences mPrefs = getSharedPreferences("userData", MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = mPrefs.getString("credentials", "");
+        credentials = (HashMap<String, String>) gson.fromJson(json, HashMap.class);
     }
 
     private boolean mayRequestContacts() {
@@ -298,6 +318,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     }
 
     private void goToMainActivity() {
+
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
@@ -328,11 +349,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 return false;
             }
 
-            if (RegistrationActivity.credentials == null || RegistrationActivity.credentials.isEmpty()) {
+            if (credentials == null || credentials.isEmpty()) {
                 return false;
             }
 
-            return TextUtils.equals(RegistrationActivity.credentials.get(mEmail), mPassword);
+            return TextUtils.equals(credentials.get(mEmail), mPassword);
         }
 
         @Override
