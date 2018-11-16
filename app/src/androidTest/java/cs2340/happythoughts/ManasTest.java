@@ -9,7 +9,7 @@ import org.junit.Rule;
 
 
 
-import cs2340.happythoughts.Controllers.RegistrationActivity;
+import cs2340.happythoughts.controllers.RegistrationActivity;
 import static android.support.test.espresso.action.ViewActions.click;
 
 import static android.support.test.espresso.Espresso.onView;

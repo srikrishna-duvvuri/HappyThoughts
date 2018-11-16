@@ -45,9 +45,7 @@ public class DonationItemsManager {
     }
 
     public void addDonations(ArrayList<DonationItem> list) {
-        for (DonationItem item : donations) {
-            donations.add(item);
-        }
+        donations.addAll(donations);
     }
 
     public void setDonations(ArrayList<DonationItem> list) {
