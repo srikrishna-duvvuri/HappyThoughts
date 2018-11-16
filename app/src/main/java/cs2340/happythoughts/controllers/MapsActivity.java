@@ -1,9 +1,8 @@
-package cs2340.happythoughts.Controllers;
+package cs2340.happythoughts.controllers;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
-import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -11,8 +10,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import cs2340.happythoughts.Models.Location;
-import cs2340.happythoughts.Models.LocationsManager;
+import cs2340.happythoughts.models.Location;
+import cs2340.happythoughts.models.LocationsManager;
 import cs2340.happythoughts.R;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {

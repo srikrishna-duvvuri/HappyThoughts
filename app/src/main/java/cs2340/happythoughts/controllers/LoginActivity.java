@@ -1,4 +1,4 @@
-package cs2340.happythoughts.Controllers;
+package cs2340.happythoughts.controllers;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -33,9 +33,6 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

@@ -1,4 +1,4 @@
-package cs2340.happythoughts.Controllers;
+package cs2340.happythoughts.controllers;
 
 import android.Manifest;
 import android.content.Intent;

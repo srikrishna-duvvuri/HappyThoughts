@@ -1,4 +1,4 @@
-package cs2340.happythoughts.Controllers;
+package cs2340.happythoughts.controllers;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -19,10 +19,10 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import cs2340.happythoughts.Models.DonationItem;
-import cs2340.happythoughts.Models.DonationItemsManager;
-import cs2340.happythoughts.Models.Location;
-import cs2340.happythoughts.Models.LocationsManager;
+import cs2340.happythoughts.models.DonationItem;
+import cs2340.happythoughts.models.DonationItemsManager;
+import cs2340.happythoughts.models.Location;
+import cs2340.happythoughts.models.LocationsManager;
 import cs2340.happythoughts.R;
 
 public class MainActivity extends AppCompatActivity {

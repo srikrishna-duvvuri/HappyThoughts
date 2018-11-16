@@ -1,6 +1,5 @@
-package cs2340.happythoughts.Controllers;
+package cs2340.happythoughts.controllers;
 
-import android.content.ClipData;
 import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
@@ -9,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
@@ -18,11 +16,11 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import cs2340.happythoughts.Models.Category;
-import cs2340.happythoughts.Models.DonationItem;
-import cs2340.happythoughts.Models.DonationItemsManager;
-import cs2340.happythoughts.Models.Location;
-import cs2340.happythoughts.Models.LocationsManager;
+import cs2340.happythoughts.models.Category;
+import cs2340.happythoughts.models.DonationItem;
+import cs2340.happythoughts.models.DonationItemsManager;
+import cs2340.happythoughts.models.Location;
+import cs2340.happythoughts.models.LocationsManager;
 import cs2340.happythoughts.R;
 
 public class SearchActivity extends AppCompatActivity {
@@ -38,7 +36,6 @@ public class SearchActivity extends AppCompatActivity {
     private LocationsManager locationsManager = LocationsManager.getInstance();
 
     private ArrayList<DonationItem> returnList;
-    private ArrayAdapter<DonationItem> donationAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,8 +80,6 @@ public class SearchActivity extends AppCompatActivity {
         message.setVisibility(View.GONE);
 
         this.name = findViewById(R.id.name);
-        this.locationSpinner = findViewById(R.id.locationSpinner);
-        this.categorySpinner = findViewById(R.id.categorySpinner);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)

@@ -1,4 +1,4 @@
-package cs2340.happythoughts.Models;
+package cs2340.happythoughts.models;
 
 import android.annotation.SuppressLint;
 import android.os.Build;

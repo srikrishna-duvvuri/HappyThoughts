@@ -1,4 +1,4 @@
-package cs2340.happythoughts.Controllers;
+package cs2340.happythoughts.controllers;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,13 +7,12 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import cs2340.happythoughts.Models.DonationItem;
+import cs2340.happythoughts.models.DonationItem;
 import cs2340.happythoughts.R;
 
 public class LocationDetailsActivity extends AppCompatActivity {

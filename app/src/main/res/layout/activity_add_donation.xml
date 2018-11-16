@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Controllers.AddDonationActivity">
+    tools:context=".controllers.AddDonationActivity">
 
 
     <Spinner
@@ -66,8 +66,8 @@
         android:id="@+id/cancelDonation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/addDonation"
-        android:layout_marginLeft="10dp"
+        android:layout_toEndOf="@id/addDonation"
+        android:layout_marginStart="10dp"
         android:layout_below="@id/Value"
         android:text="Cancel" />
 

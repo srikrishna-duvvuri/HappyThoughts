@@ -1,4 +1,4 @@
-package cs2340.happythoughts.Models;
+package cs2340.happythoughts.models;
 
 public class Location {
     private int key;

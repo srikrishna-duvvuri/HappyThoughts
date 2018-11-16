@@ -1,4 +1,4 @@
-package cs2340.happythoughts.Controllers;
+package cs2340.happythoughts.controllers;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -6,13 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import cs2340.happythoughts.Models.Location;
+import cs2340.happythoughts.models.Location;
 import cs2340.happythoughts.R;
 
 public class LocationListAdapter extends ArrayAdapter<Location> {

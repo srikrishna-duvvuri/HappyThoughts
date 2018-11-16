@@ -1,4 +1,4 @@
-package cs2340.happythoughts.Controllers;
+package cs2340.happythoughts.controllers;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

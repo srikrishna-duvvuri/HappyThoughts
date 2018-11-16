@@ -5,7 +5,7 @@ import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNotSame;
 
 
-import cs2340.happythoughts.Models.Location;
+import cs2340.happythoughts.models.Location;
 
 public class ChrisTest {
     @Test

@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Controllers.ItemDetailsActivity">
+    tools:context=".controllers.ItemDetailsActivity">
 
     <TextView
         android:id="@+id/LocationDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:text="TextView" />
 
     <TextView
@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:text="TextView"
         android:layout_below="@+id/LocationDisplay"/>
 
@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:text="TextView"
         android:layout_below="@id/ShortDescriptionDisplay"/>
 
@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:text="TextView"
         android:layout_below="@+id/LongDescriptionDisplay"/>
 
@@ -46,7 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:text="TextView"
         android:layout_below="@+id/AmountDisplay"/>
 
@@ -55,7 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:text="TextView"
         android:layout_below="@+id/TimeStampDisplay"/>
 </RelativeLayout>

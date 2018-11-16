@@ -22,23 +22,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Controllers.WelcomeActivity">
+        <activity android:name=".controllers.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Controllers.LoginActivity" />
-        <activity android:name=".Controllers.MainActivity" />
-        <activity android:name=".Controllers.RegistrationActivity" />
-        <activity android:name=".Controllers.LocationDetailsActivity" />
-        <activity android:name=".Controllers.AddDonationActivity" />
+        <activity android:name=".controllers.LoginActivity" />
+        <activity android:name=".controllers.MainActivity" />
+        <activity android:name=".controllers.RegistrationActivity" />
+        <activity android:name=".controllers.LocationDetailsActivity" />
+        <activity android:name=".controllers.AddDonationActivity" />
         <activity
-            android:name=".Controllers.ItemDetailsActivity"
+            android:name=".controllers.ItemDetailsActivity"
             android:label="@string/title_activity_item_details"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Controllers.SearchActivity" />
+        <activity android:name=".controllers.SearchActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -52,7 +52,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".Controllers.MapsActivity"
+            android:name=".controllers.MapsActivity"
             android:label="@string/title_activity_maps"></activity>
 
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
