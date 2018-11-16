@@ -18,7 +18,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:textColor="@color/colorPrimaryDark"
-            android:text="Location Name"
+            android:text="@string/location_name"
             android:textAlignment="center"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/locationNameText"
-            android:text="Location Type"
+            android:text="@string/location_type"
             android:textAlignment="center"
             android:textSize="15sp" />
 
@@ -39,7 +39,7 @@
             android:layout_below="@id/typeText"
             android:layout_marginStart="15dp"
             android:layout_marginTop="20dp"
-            android:text="Address:" />
+            android:text="@string/address" />
 
         <TextView
             android:id="@+id/coordinatesText"
@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/addressText"
             android:layout_marginStart="15dp"
-            android:text="Coordinates:" />
+            android:text="@string/coordinates" />
 
         <TextView
             android:id="@+id/phoneText"
@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/coordinatesText"
             android:layout_marginStart="15dp"
-            android:text="Phone number:" />
+            android:text="@string/phone_number" />
 
         <ListView
             android:id="@+id/ListItems"
