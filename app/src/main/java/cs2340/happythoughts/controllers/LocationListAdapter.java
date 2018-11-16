@@ -16,8 +16,6 @@ import cs2340.happythoughts.R;
 public class LocationListAdapter extends ArrayAdapter<Location> {
     private Context mContext;
     private int mResource;
-    private TextView nameView;
-    private TextView addressView;
 
     public LocationListAdapter(@NonNull Context context, int resource, ArrayList<Location> objects) {
         super(context, resource, objects);
@@ -38,8 +36,8 @@ public class LocationListAdapter extends ArrayAdapter<Location> {
         LayoutInflater inflater = LayoutInflater.from(mContext);
         convertView = inflater.inflate(mResource, parent, false);
 
-        nameView = convertView.findViewById(R.id.locationName);
-        addressView = convertView.findViewById(R.id.locationAddress);
+        TextView nameView = convertView.findViewById(R.id.locationName);
+        TextView addressView = convertView.findViewById(R.id.locationAddress);
         nameView.setText(name);
         addressView.setText(total);
         return convertView;

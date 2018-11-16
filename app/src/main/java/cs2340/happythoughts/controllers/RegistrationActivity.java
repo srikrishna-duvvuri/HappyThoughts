@@ -55,7 +55,6 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
     private EditText mPasswordView;
     private View mProgressView;
     private View mRegistrationFormView;
-    private Spinner mUserTypeView;
 
     private String _userType;
     private String[] userTypes = {"User", "Location Employee", "Admin", "Manager"};
@@ -89,7 +88,7 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
             }
         });
 
-        mUserTypeView = findViewById(R.id.spinner);
+        Spinner mUserTypeView = findViewById(R.id.spinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.simple_spinner_item, userTypes);
         adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         mUserTypeView.setAdapter(adapter);

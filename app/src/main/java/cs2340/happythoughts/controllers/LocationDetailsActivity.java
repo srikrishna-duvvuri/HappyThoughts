@@ -17,13 +17,6 @@ import cs2340.happythoughts.R;
 
 public class LocationDetailsActivity extends AppCompatActivity {
 
-    private TextView locationTitle;
-    private TextView locationType;
-    private TextView locationCoordinates;
-    private TextView locationAddress;
-    private TextView locationPhone;
-    private ListView donationList;
-
     public ArrayList<DonationItem> localItems;
 
     @Override
@@ -31,12 +24,12 @@ public class LocationDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_details);
 
-        locationTitle = findViewById(R.id.locationNameText);
-        locationType = findViewById(R.id.typeText);
-        locationCoordinates = findViewById(R.id.coordinatesText);
-        locationAddress = findViewById(R.id.addressText);
-        locationPhone = findViewById(R.id.phoneText);
-        donationList = findViewById(R.id.ListItems);
+        TextView locationTitle = findViewById(R.id.locationNameText);
+        TextView locationType = findViewById(R.id.typeText);
+        TextView locationCoordinates = findViewById(R.id.coordinatesText);
+        TextView locationAddress = findViewById(R.id.addressText);
+        TextView locationPhone = findViewById(R.id.phoneText);
+        ListView donationList = findViewById(R.id.ListItems);
 
         Intent intent = getIntent();
         locationTitle.setText(intent.getStringExtra("name"));

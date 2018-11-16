@@ -16,7 +16,6 @@ import cs2340.happythoughts.R;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
-    private GoogleMap mMap;
     private LocationsManager locationsManager = LocationsManager.getInstance();
 
     @Override
@@ -41,7 +40,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
+        GoogleMap mMap = googleMap;
 
         LatLng atlantaCoordinates = new LatLng(33.7490, -84.3880);
 

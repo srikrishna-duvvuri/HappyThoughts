@@ -15,8 +15,6 @@ import cs2340.happythoughts.R;
 
 public class WelcomeActivity extends AppCompatActivity {
 
-    private Button mSignIn;
-    private Button mRegistration;
     private int requestCode;
     private int grantResults[];
 
@@ -25,8 +23,8 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        mSignIn = findViewById(R.id.signInButton);
-        mRegistration = findViewById(R.id.registrationButton);
+        Button mSignIn = findViewById(R.id.signInButton);
+        Button mRegistration = findViewById(R.id.registrationButton);
 
         mSignIn.setOnClickListener(new View.OnClickListener() {
             @Override

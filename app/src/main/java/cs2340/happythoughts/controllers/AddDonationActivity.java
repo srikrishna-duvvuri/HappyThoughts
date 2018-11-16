@@ -30,11 +30,8 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
     private TextView value;
     private Spinner location;
     private Spinner itemType;
-    private Button add;
-    private Button cancel;
     private DonationItemsManager donationItemsManager;
     private LocationsManager locationsManager = LocationsManager.getInstance();
-    private ArrayList<DonationItem> donationItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +47,8 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
         value = (EditText)findViewById(R.id.Value);
         location = findViewById(R.id.LocationSpinner);
         itemType = findViewById(R.id.ItemSpinner);
-        add = findViewById(R.id.addDonation);
-        cancel = findViewById(R.id.cancelDonation);
+        Button add = findViewById(R.id.addDonation);
+        Button cancel = findViewById(R.id.cancelDonation);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.itemArray, R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
@@ -91,7 +88,7 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
         SharedPreferences mPrefs = getSharedPreferences("donationItemsData", MODE_PRIVATE);
         Gson gson = new Gson();
         String json = mPrefs.getString("donationItems", "");
-        donationItems = (ArrayList<DonationItem>) gson.fromJson(json, ArrayList.class);
+        ArrayList<DonationItem> donationItems = (ArrayList<DonationItem>) gson.fromJson(json, ArrayList.class);
         if (donationItems != null) {
             donationItemsManager.setDonations(donationItems);
         }

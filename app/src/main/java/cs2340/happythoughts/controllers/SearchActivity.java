@@ -27,7 +27,6 @@ public class SearchActivity extends AppCompatActivity {
 
     private TextView name;
     private Spinner locationSpinner;
-    private List<Location> locations;
     private Spinner categorySpinner;
     private ListView donationList;
     private TextView message;
@@ -45,7 +44,7 @@ public class SearchActivity extends AppCompatActivity {
         categorySpinner = findViewById(R.id.categorySpinner);
         locationSpinner = findViewById(R.id.locationSpinner);
 
-        locations = locationsManager.getLocations();
+        List<Location> locations = locationsManager.getLocations();
         locations.add(0, locationsManager.getAllLocation());
         SpinnerAdapter locationAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, locations);
         locationSpinner.setAdapter(locationAdapter);
