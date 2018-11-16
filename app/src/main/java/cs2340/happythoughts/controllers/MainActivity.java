@@ -32,9 +32,9 @@ public class MainActivity extends AppCompatActivity {
     private Button mMapButton;
     private static ArrayList<Location> locations;
     private ListView locationListView;
-    public static ArrayList<DonationItem> donationsList = new ArrayList<>();
+    public static final ArrayList<DonationItem> donationsList = new ArrayList<>();
     public static String currentUser;
-    private LocationsManager locationsManager = LocationsManager.getInstance();
+    private final LocationsManager locationsManager = LocationsManager.getInstance();
     private DonationItemsManager donationItemsManager = DonationItemsManager.getInstance();
     private HashMap<String, String> userTypeForUser;
 
@@ -170,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void populateCredentials() throws Exception{
+    private void populateCredentials() {
         SharedPreferences mPrefs = getSharedPreferences("userData", MODE_PRIVATE);
         Gson gson = new Gson();
         String json = mPrefs.getString("userTypeForUser", "");

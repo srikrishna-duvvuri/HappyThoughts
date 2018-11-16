@@ -14,8 +14,10 @@ import java.util.List;
 @RunWith(JUnit4.class)
 public class JaradTest {
 
-    Location loc1, loc2, loc3;
-    LocationsManager locMan = LocationsManager.getInstance();
+    private Location loc1;
+    private Location loc2;
+    private Location loc3;
+    private final LocationsManager locMan = LocationsManager.getInstance();
     @Before
     public void initialize() {
         loc1 = new Location(1,"one",33.7490,84.3880,"one way","onelanta","onegeorgia",

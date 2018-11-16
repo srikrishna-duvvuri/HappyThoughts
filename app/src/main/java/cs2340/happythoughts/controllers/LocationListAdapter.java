@@ -13,9 +13,9 @@ import java.util.ArrayList;
 import cs2340.happythoughts.models.Location;
 import cs2340.happythoughts.R;
 
-public class LocationListAdapter extends ArrayAdapter<Location> {
-    private Context mContext;
-    private int mResource;
+class LocationListAdapter extends ArrayAdapter<Location> {
+    private final Context mContext;
+    private final int mResource;
 
     public LocationListAdapter(@NonNull Context context, int resource, ArrayList<Location> objects) {
         super(context, resource, objects);

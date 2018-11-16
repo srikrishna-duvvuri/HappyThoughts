@@ -12,7 +12,7 @@ public enum Category {
     SPORTSANDOUTDOORS("Sports and Outdoors"),
     TOYS("Toys");
 
-    private String category;
+    private final String category;
 
     Category(String category) {
         this.category = category;
