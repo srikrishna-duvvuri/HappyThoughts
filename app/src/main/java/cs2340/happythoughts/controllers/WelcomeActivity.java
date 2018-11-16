@@ -71,7 +71,6 @@ public class WelcomeActivity extends AppCompatActivity {
                     //app cannot function without this permission for now so close it...
                     onDestroy();
                 }
-                return;
             }
         }
     }
