@@ -37,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/typeText"
-            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="20dp"
             android:text="Address:" />
 
@@ -46,7 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/addressText"
-            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
             android:text="Coordinates:" />
 
         <TextView
@@ -54,7 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/coordinatesText"
-            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
             android:text="Phone number:" />
 
         <ListView
