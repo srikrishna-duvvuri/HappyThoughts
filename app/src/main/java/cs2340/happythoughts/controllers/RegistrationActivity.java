@@ -57,7 +57,7 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
     private View mRegistrationFormView;
 
     private String _userType;
-    private String[] userTypes = {"User", "Location Employee", "Admin", "Manager"};
+    private final String[] userTypes = {"User", "Location Employee", "Admin", "Manager"};
 
     private static HashMap<String, String> credentials;
     private static HashMap<String, String> userTypeForUser;
@@ -129,7 +129,7 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
         getLoaderManager().initLoader(0, null, this);
     }
 
-    private void populateCredentials() throws Exception {
+    private void populateCredentials() {
         SharedPreferences  mPrefs = getSharedPreferences("userData", MODE_PRIVATE);
         Gson gson = new Gson();
         String json = mPrefs.getString("credentials", "");
@@ -343,7 +343,7 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
         userTypeForUser.put(mUser, mType);
     }
 
-    private void storeData() throws Exception {
+    private void storeData() {
         SharedPreferences mPrefs = getSharedPreferences("userData", MODE_PRIVATE);
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
         Gson gson = new Gson();
@@ -359,7 +359,7 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
      * Represents an asynchronous registration task used to register
      * the user.
      */
-    public class UserRegistrationTask extends AsyncTask<Void, Void, Boolean> {
+    class UserRegistrationTask extends AsyncTask<Void, Void, Boolean> {
 
         private final String mEmail;
         private final String mPassword;

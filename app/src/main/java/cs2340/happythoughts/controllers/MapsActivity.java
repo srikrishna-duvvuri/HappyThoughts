@@ -16,7 +16,7 @@ import cs2340.happythoughts.R;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
-    private LocationsManager locationsManager = LocationsManager.getInstance();
+    private final LocationsManager locationsManager = LocationsManager.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

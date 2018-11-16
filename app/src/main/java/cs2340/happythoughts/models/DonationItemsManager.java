@@ -10,23 +10,16 @@ import java.util.function.Predicate;
 
 public class DonationItemsManager {
 
-    private static DonationItemsManager instance = new DonationItemsManager();
+    private static final DonationItemsManager instance = new DonationItemsManager();
 
     private List<DonationItem> donations;
-    private LocationsManager locationManager;
+    private final LocationsManager locationManager;
 
 
     private DonationItemsManager() {
         this.donations = new ArrayList<>();
         this.locationManager = LocationsManager.getInstance();
     }
-
-//    private List<DonationItem> retrieveDonationItems() {
-//        SharedPreferences mPrefs = getSharedPreferences("donationInfo", MODE_PRIVATE);
-//        Gson gson = new Gson();
-//        String json = mPrefs.getString("donations", "");
-//        return (List<DonationItem>) gson.fromJson(json, List.class);
-//    }
 
     public static DonationItemsManager getInstance() {
         return instance;
@@ -52,17 +45,8 @@ public class DonationItemsManager {
         donations = list;
     }
 
-//    private void storeDonations() {
-//        SharedPreferences mPrefs = getSharedPreferences("donationInfo", MODE_PRIVATE);
-//        SharedPreferences.Editor prefsEditor = mPrefs.edit();
-//        Gson gson = new Gson();
-//        String json = gson.toJson(donations);
-//        prefsEditor.putString("donations", json);
-//        prefsEditor.commit();
-//    }
-
     @SuppressLint("NewApi")
-    public ArrayList<DonationItem> search(Predicate<DonationItem> filter) {
+    private ArrayList<DonationItem> search(Predicate<DonationItem> filter) {
         ArrayList<DonationItem> result = new ArrayList<>();
         for (DonationItem donation : this.donations) {
             if (filter.test(donation)) {
