@@ -14,10 +14,7 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import cs2340.happythoughts.Models.DonationItem;
 import cs2340.happythoughts.Models.DonationItemsManager;

@@ -8,7 +8,6 @@ import cs2340.happythoughts.Models.Location;
 import cs2340.happythoughts.Models.LocationsManager;
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNotSame;
-import java.util.ArrayList;
 import java.util.List;
 
 @RunWith(JUnit4.class)
