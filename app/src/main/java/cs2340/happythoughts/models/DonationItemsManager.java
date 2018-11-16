@@ -21,13 +21,6 @@ public class DonationItemsManager {
         this.locationManager = LocationsManager.getInstance();
     }
 
-//    private List<DonationItem> retrieveDonationItems() {
-//        SharedPreferences mPrefs = getSharedPreferences("donationInfo", MODE_PRIVATE);
-//        Gson gson = new Gson();
-//        String json = mPrefs.getString("donations", "");
-//        return (List<DonationItem>) gson.fromJson(json, List.class);
-//    }
-
     public static DonationItemsManager getInstance() {
         return instance;
     }
@@ -51,15 +44,6 @@ public class DonationItemsManager {
     public void setDonations(ArrayList<DonationItem> list) {
         donations = list;
     }
-
-//    private void storeDonations() {
-//        SharedPreferences mPrefs = getSharedPreferences("donationInfo", MODE_PRIVATE);
-//        SharedPreferences.Editor prefsEditor = mPrefs.edit();
-//        Gson gson = new Gson();
-//        String json = gson.toJson(donations);
-//        prefsEditor.putString("donations", json);
-//        prefsEditor.commit();
-//    }
 
     @SuppressLint("NewApi")
     private ArrayList<DonationItem> search(Predicate<DonationItem> filter) {
