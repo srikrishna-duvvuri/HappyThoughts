@@ -10,10 +10,10 @@ import java.util.function.Predicate;
 
 public class DonationItemsManager {
 
-    private static DonationItemsManager instance = new DonationItemsManager();
+    private static final DonationItemsManager instance = new DonationItemsManager();
 
     private List<DonationItem> donations;
-    private LocationsManager locationManager;
+    private final LocationsManager locationManager;
 
 
     private DonationItemsManager() {
@@ -46,7 +46,7 @@ public class DonationItemsManager {
     }
 
     @SuppressLint("NewApi")
-    public ArrayList<DonationItem> search(Predicate<DonationItem> filter) {
+    private ArrayList<DonationItem> search(Predicate<DonationItem> filter) {
         ArrayList<DonationItem> result = new ArrayList<>();
         for (DonationItem donation : this.donations) {
             if (filter.test(donation)) {

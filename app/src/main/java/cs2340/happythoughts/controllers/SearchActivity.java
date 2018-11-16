@@ -31,8 +31,8 @@ public class SearchActivity extends AppCompatActivity {
     private ListView donationList;
     private TextView message;
 
-    private DonationItemsManager donationItemsManager = DonationItemsManager.getInstance();
-    private LocationsManager locationsManager = LocationsManager.getInstance();
+    private final DonationItemsManager donationItemsManager = DonationItemsManager.getInstance();
+    private final LocationsManager locationsManager = LocationsManager.getInstance();
 
     private ArrayList<DonationItem> returnList;
 

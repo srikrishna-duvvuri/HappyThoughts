@@ -17,7 +17,7 @@ import cs2340.happythoughts.R;
 
 public class LocationDetailsActivity extends AppCompatActivity {
 
-    public ArrayList<DonationItem> localItems;
+    private ArrayList<DonationItem> localItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

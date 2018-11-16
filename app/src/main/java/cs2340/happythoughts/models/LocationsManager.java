@@ -7,7 +7,7 @@ public class LocationsManager {
 
     private static final LocationsManager instance = new LocationsManager();
 
-    private List<Location> locations;
+    private final List<Location> locations;
 
     private static final Location allLocations = new Location(-1, "All Locations", 0, 0,
             "", "", "", "", null, "", "");
