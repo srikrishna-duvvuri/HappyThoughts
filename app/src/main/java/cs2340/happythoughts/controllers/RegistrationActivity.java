@@ -69,7 +69,7 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
         setContentView(R.layout.activity_registration);
 
         // Set up the login form.
-        mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
+        mEmailView = findViewById(R.id.email);
         populateAutoComplete();
         try {
             populateCredentials();
@@ -77,7 +77,7 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
             throw new RuntimeException(e.getMessage());
         }
 
-        mPasswordView = (EditText) findViewById(R.id.password);
+        mPasswordView = findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
@@ -89,7 +89,7 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
             }
         });
 
-        mUserTypeView = (Spinner) findViewById(R.id.spinner);
+        mUserTypeView = findViewById(R.id.spinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.simple_spinner_item, userTypes);
         adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         mUserTypeView.setAdapter(adapter);
@@ -105,7 +105,7 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
             }
         });
 
-        Button mEmailRegisterButton = (Button) findViewById(R.id.email_registration_button);
+        Button mEmailRegisterButton = findViewById(R.id.email_registration_button);
         mEmailRegisterButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {

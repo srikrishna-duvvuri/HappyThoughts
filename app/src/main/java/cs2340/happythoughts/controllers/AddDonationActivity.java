@@ -48,10 +48,10 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
         shortDescription = (EditText)findViewById(R.id.ShortDescription);
         fullDescription = (EditText)findViewById(R.id.FullDescription);
         value = (EditText)findViewById(R.id.Value);
-        location = (Spinner)findViewById(R.id.LocationSpinner);
-        itemType = (Spinner)findViewById(R.id.ItemSpinner);
-        add = (Button)findViewById(R.id.addDonation);
-        cancel = (Button)findViewById(R.id.cancelDonation);
+        location = findViewById(R.id.LocationSpinner);
+        itemType = findViewById(R.id.ItemSpinner);
+        add = findViewById(R.id.addDonation);
+        cancel = findViewById(R.id.cancelDonation);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.itemArray, R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
