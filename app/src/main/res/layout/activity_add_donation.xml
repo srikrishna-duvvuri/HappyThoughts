@@ -66,8 +66,8 @@
         android:id="@+id/cancelDonation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/addDonation"
-        android:layout_marginLeft="10dp"
+        android:layout_toEndOf="@id/addDonation"
+        android:layout_marginStart="10dp"
         android:layout_below="@id/Value"
         android:text="Cancel" />
 
