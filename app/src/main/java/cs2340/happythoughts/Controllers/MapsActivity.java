@@ -44,15 +44,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        LatLng atlantaCoords = new LatLng(33.7490, -84.3880);
+        LatLng atlantaCoordinates = new LatLng(33.7490, -84.3880);
 
         for (Location location : locationsManager.getLocations()) {
-            LatLng locationCoords = new LatLng(location.getLatitude(), location.getLongitude());
-            MarkerOptions locationMarker = new MarkerOptions().position(locationCoords).title(location.getName()).snippet(location.getPhoneNumber());
+            LatLng locationCoordinates = new LatLng(location.getLatitude(), location.getLongitude());
+            MarkerOptions locationMarker = new MarkerOptions().position(locationCoordinates).title(location.getName()).snippet(location.getPhoneNumber());
             mMap.addMarker(locationMarker);
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(locationCoords));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(locationCoordinates));
         }
         mMap.moveCamera(CameraUpdateFactory.zoomTo(10f));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(atlantaCoords));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(atlantaCoordinates));
     }
 }
