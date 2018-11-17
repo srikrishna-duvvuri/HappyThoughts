@@ -17,7 +17,7 @@ public class JaradTest {
     private Location loc1;
     private Location loc2;
     private Location loc3;
-    private final LocationsManager locMan = LocationsManager.getInstance();
+    private LocationsManager locMan;
     @Before
     public void initialize() {
         loc1 = new Location(1,"one",33.7490,84.3880,"one way","onelanta","onegeorgia",
@@ -26,6 +26,7 @@ public class JaradTest {
                 "2zip","2type","2phone","2.com");
         loc3 = new Location(3,"three",44.2010,74.9200,"three way","threelanta","threegeorgia",
                 "3zip","3type","3phone","3.com");
+        locMan = LocationsManager.getInstance();
     }
 
     @Test
@@ -41,6 +42,7 @@ public class JaradTest {
 
     @Test
     public void checkLocationListFailed() {
+        locMan.clearLocations();
         locMan.addLocation(loc1);
         locMan.addLocation(loc2);
         locMan.addLocation(loc2);

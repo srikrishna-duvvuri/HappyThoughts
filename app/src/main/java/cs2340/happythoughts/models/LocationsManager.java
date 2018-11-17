@@ -31,4 +31,8 @@ public class LocationsManager {
     public Location getAllLocation() {
         return allLocations;
     }
+
+    public void clearLocations() {
+        locations.clear();
+    }
 }
