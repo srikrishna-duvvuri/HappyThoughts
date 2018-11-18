@@ -22,7 +22,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
 @RunWith(AndroidJUnit4.class)
 public class SriTest {
     @Rule
-    public ActivityTestRule<LoginActivity> rule  = (ActivityTestRule<LoginActivity>) new ActivityTestRule(LoginActivity.class);
+    public ActivityTestRule<LoginActivity> rule  = new ActivityTestRule<>(LoginActivity.class);
 
     @Test
     public void testSuccess() {

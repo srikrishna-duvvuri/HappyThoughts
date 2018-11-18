@@ -136,9 +136,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void readLocationData() {
-        InputStream instream = getResources().openRawResource(R.raw.locationdata);
+        InputStream inStream = getResources().openRawResource(R.raw.locationdata);
         BufferedReader reader = new BufferedReader(
-                new InputStreamReader(instream, Charset.forName("UTF-8")));
+                new InputStreamReader(inStream, Charset.forName("UTF-8")));
         String ln;
         try {
             //skip header line

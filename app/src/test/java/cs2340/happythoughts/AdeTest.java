@@ -13,7 +13,7 @@ import cs2340.happythoughts.models.Location;
 @RunWith(JUnit4.class)
 public class AdeTest {
 
-    private Location newLoc = new Location(100, "GT", 19.11, 19.19,
+    private final Location newLoc = new Location(100, "GT", 19.11, 19.19,
             "123 GT Station", "Atla", "Ga", "30318", "type", "123-123-1234", "1234.com");
 
     @Test
