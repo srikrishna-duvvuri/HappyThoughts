@@ -338,7 +338,7 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
      * Represents an asynchronous registration task used to register
      * the user.
      */
-    class UserRegistrationTask extends AsyncTask<Void, Void, Boolean> {
+    private class UserRegistrationTask extends AsyncTask<Void, Void, Boolean> {
 
         private final String mEmail;
         private final String mPassword;
