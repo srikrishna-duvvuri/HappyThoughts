@@ -163,6 +163,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /** Getter method for getLocations
+     *
+     * @return locations which is a list of locations
+     */
     public static ArrayList<Location> getLocations() {
         return locations;
     }

@@ -99,6 +99,10 @@ public class SearchActivity extends AppCompatActivity {
         }
     }
 
+    /** Method to search stuff by name
+     *
+     * @param view the view used for the current method
+     */
     @RequiresApi(api = Build.VERSION_CODES.N)
     public void onSearchByName(View view) {
         message.setVisibility(View.GONE);

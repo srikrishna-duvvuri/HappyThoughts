@@ -21,20 +21,42 @@ public class DonationItemsManager {
         this.locationManager = LocationsManager.getInstance();
     }
 
+    /** Getter method for instance
+     *
+     * @return instance at that point
+     */
     public static DonationItemsManager getInstance() {
         return instance;
     }
 
+    /** Getter method for donations
+     *
+     * @return donations at that point
+     */
     public List<DonationItem> getDonations() {
         return donations;
     }
 
+    /** Adds a donation
+     *
+     * @param time time at that point
+     * @param location location at that point
+     * @param shortDescription short description at that point
+     * @param fullDescription full description at that point
+     * @param value value at that point
+     * @param category category at that point
+     */
     public void addDonation(String time, Location location, String shortDescription,
                             String fullDescription, String value, String category) {
         DonationItem donation = new DonationItem(time, location, shortDescription, fullDescription,
                 value, category);
         donations.add(donation);
     }
+
+    /**Adds a donation to the list
+     *
+     * @param donation the donation to be added
+     */
     public void addDonation(DonationItem donation) {
         donations.add(donation);
     }
@@ -50,6 +72,12 @@ public class DonationItemsManager {
         return result;
     }
 
+    /** search category method
+     *
+     * @param location location that is used to search by category
+     * @param category category that is used to search by category
+     * @return the array list of donations
+     */
     @RequiresApi(api = Build.VERSION_CODES.N)
     public ArrayList<DonationItem> searchByCategory(final Location location, final Category category) {
         if (location.equals(locationManager.getAllLocation())) {
@@ -69,6 +97,12 @@ public class DonationItemsManager {
         }
     }
 
+    /** search category method
+     *
+     * @param location location that is used to search by category
+     * @param name name that is used to search by category
+     * @return the array list of donations
+     */
     @RequiresApi(api = Build.VERSION_CODES.N)
     public ArrayList<DonationItem> searchByName(final Location location, final String name) {
         if (location.equals(locationManager.getAllLocation())) {
@@ -87,6 +121,10 @@ public class DonationItemsManager {
             });
         }
     }
+
+    /** Clears the donations
+     *
+     */
     public void clearDonations() {
         donations.clear();
     }
