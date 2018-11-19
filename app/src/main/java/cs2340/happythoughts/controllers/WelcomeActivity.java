@@ -3,6 +3,7 @@ package cs2340.happythoughts.controllers;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -56,7 +57,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
     @Override // android recommended class to handle permissions
     public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[], int[] grantResults) {
+                                           @NonNull String permissions[], @NonNull int[] grantResults) {
         switch (requestCode) {
             case 1: {
                 if (grantResults.length > 0

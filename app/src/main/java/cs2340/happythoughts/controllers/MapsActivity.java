@@ -10,6 +10,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.Objects;
+
 import cs2340.happythoughts.models.Location;
 import cs2340.happythoughts.models.LocationsManager;
 import cs2340.happythoughts.R;
@@ -25,7 +27,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+        Objects.requireNonNull(mapFragment).getMapAsync(this);
     }
 
 

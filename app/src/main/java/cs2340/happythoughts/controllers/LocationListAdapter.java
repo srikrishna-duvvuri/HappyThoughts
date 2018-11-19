@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import cs2340.happythoughts.models.Location;
 import cs2340.happythoughts.R;
@@ -24,12 +25,12 @@ class LocationListAdapter extends ArrayAdapter<Location> {
     }
     @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        String name = getItem(position).getName();
-        String city = getItem(position).getCity();
-        String address = getItem(position).getStreetAddress();
-        String zip = getItem(position).getZip();
-        String state = getItem(position).getState();
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+        String name = Objects.requireNonNull(getItem(position)).getName();
+        String city = Objects.requireNonNull(getItem(position)).getCity();
+        String address = Objects.requireNonNull(getItem(position)).getStreetAddress();
+        String zip = Objects.requireNonNull(getItem(position)).getZip();
+        String state = Objects.requireNonNull(getItem(position)).getState();
 
         String total = String.format("%s, %s, %s %s", address, city, state, zip);
 
