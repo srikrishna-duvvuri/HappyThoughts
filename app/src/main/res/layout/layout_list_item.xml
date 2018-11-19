@@ -31,7 +31,7 @@
             android:paddingStart="30dip"
             android:paddingEnd="0dp"
             android:textColor="@android:color/holo_red_dark"
-            android:textSize="11sp"
+            android:textSize="14sp"
             android:textStyle="italic" />
     </LinearLayout>
 

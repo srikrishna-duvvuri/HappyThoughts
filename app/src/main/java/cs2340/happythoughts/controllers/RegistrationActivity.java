@@ -190,10 +190,6 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
             mEmailView.setError(getString(R.string.error_field_required));
             focusView = mEmailView;
             cancel = true;
-        } else if (!isEmailValid()) {
-            mEmailView.setError(getString(R.string.error_invalid_email));
-            focusView = mEmailView;
-            cancel = true;
         }
 
         if (TextUtils.isEmpty(_userType)) {
@@ -219,11 +215,6 @@ public class RegistrationActivity extends AppCompatActivity implements LoaderCal
             mRegisterTask = new UserRegistrationTask(email, password, _userType);
             mRegisterTask.execute((Void) null);
         }
-    }
-
-    private boolean isEmailValid() {
-        //TODO: Replace this with your own logic
-        return true;
     }
 
     private boolean isPasswordValid(String password) {
