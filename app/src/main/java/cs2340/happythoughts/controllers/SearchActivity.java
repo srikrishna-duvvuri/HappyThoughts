@@ -82,7 +82,7 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
-    public void onSearchByCategory(View view) {
+    public void onSearchByCategory() {
         message.setVisibility(View.GONE);
         returnList = donationItemsManager.searchByCategory((Location) locationSpinner.getSelectedItem(),
                 (Category) categorySpinner.getSelectedItem());
@@ -100,7 +100,7 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
-    public void onSearchByName(View view) {
+    public void onSearchByName() {
         message.setVisibility(View.GONE);
         returnList = donationItemsManager.searchByName((Location) locationSpinner.getSelectedItem(),
                 name.getText().toString());
