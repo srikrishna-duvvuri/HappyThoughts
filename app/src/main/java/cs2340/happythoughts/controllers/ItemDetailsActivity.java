@@ -20,11 +20,11 @@ public class ItemDetailsActivity extends AppCompatActivity {
         TextView donationTime = findViewById(R.id.TimeStampDisplay);
         TextView donationType = findViewById(R.id.TypeDisplay);
 
-        donationLocation.setText("Location: " + getIntent().getStringExtra("location"));
-        donationShortD.setText("Short Description: " + getIntent().getStringExtra("shortd"));
-        donationFullD.setText("Full Description: " + getIntent().getStringExtra("fulld"));
-        donationValue.setText("Value: " + getIntent().getStringExtra("value"));
-        donationTime.setText("Time: " + getIntent().getStringExtra("time"));
-        donationType.setText("Type: " + getIntent().getStringExtra("type"));
+        donationLocation.setText(getString(R.string.donation_location, getIntent().getStringExtra("location")));
+        donationShortD.setText(getString(R.string.donation_short, getIntent().getStringExtra("shortd")));
+        donationFullD.setText(getString(R.string.donation_full, getIntent().getStringExtra("fulld")));
+        donationValue.setText(getString(R.string.donation_value, getIntent().getStringExtra("value")));
+        donationTime.setText(getString(R.string.donation_time, getIntent().getStringExtra("time")));
+        donationType.setText(getString(R.string.donation_type, getIntent().getStringExtra("type")));
     }
 }
