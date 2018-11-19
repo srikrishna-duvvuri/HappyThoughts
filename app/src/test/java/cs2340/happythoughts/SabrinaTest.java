@@ -1,96 +1,76 @@
-package cs2340.happythoughts.models;
+package cs2340.happythoughts;
 
-import android.annotation.SuppressLint;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
+import static junit.framework.TestCase.assertEquals;
+import static org.junit.Assert.assertNotSame;
 
-import java.util.ArrayList;
+import cs2340.happythoughts.models.Category;
+import cs2340.happythoughts.models.Location;
+import cs2340.happythoughts.models.DonationItem;
+import cs2340.happythoughts.models.DonationItemsManager;
+
 import java.util.List;
-import java.util.function.Predicate;
 
-public class DonationItemsManager {
+@RunWith(JUnit4.class)
+public class SabrinaTest {
 
-    private static final DonationItemsManager instance = new DonationItemsManager();
+    private Location location1;
+    private Location location2;
+    private Location location3;
+    private DonationItem donation1;
+    private DonationItem donation2;
+    private DonationItem donation3;
+    private DonationItemsManager donationManager;
 
-    private List<DonationItem> donations;
-    private final LocationsManager locationManager;
-
-
-    private DonationItemsManager() {
-        this.donations = new ArrayList<>();
-        this.locationManager = LocationsManager.getInstance();
+    @Before
+    public void initialize() {
+        location1 = new Location(1, "GT1", 19.11, 19.19,
+                "1 GT Station", "Atla1", "Ga1", "30001", "type1",
+                "123-123-1234", "1.com");
+        location2 = new Location(2, "GT2", 20.12, 20.32,
+                "2 GT Station", "Atla2", "Ga2", "30002", "type2",
+                "234-567-890", "2.com");
+        location3 = new Location(3, "GT3", 21.13, 21.43,
+                "3 GT Station", "Atla3", "Ga3", "30003", "type3",
+                "345-678-901", "3.com");
+        donation1 = new DonationItem("1", location1,"miscellaneous1",
+                "long description here1", "worth-alot1", "Clothing");
+        donation2 = new DonationItem("2", location2, "miscellaneous2",
+                "long description here2", "worth-alot2", "Baby");
+        donation3 = new DonationItem("3", location3, "miscellaneous3",
+                "long description here3", "worth-alot3", "Toys");
+        donationManager = DonationItemsManager.getInstance();
     }
 
-    public static DonationItemsManager getInstance() {
-        return instance;
+    @Test
+    public void testDonationItemsManagerSuccess(){
+        donationManager.addDonation(donation1);
+        donationManager.addDonation(donation2);
+        donationManager.addDonation(donation3);
+        List<DonationItem> don = donationManager.getDonations();
+        assertEquals(donation1, don.get(0));
+        assertEquals(donation2, don.get(1));
+        assertEquals(donation3, don.get(2));
+        assertEquals(donation1, donationManager.searchByCategory(location1, Category.CLOTHING).get(0));
+        assertEquals(donation2, donationManager.searchByCategory(location2, Category.BABY).get(0));
+        assertEquals(donation3, donationManager.searchByCategory(location3, Category.TOYS).get(0));
     }
 
-    public List<DonationItem> getDonations() {
-        return donations;
-    }
-
-    public void addDonation(String name, Location location, String value, String shortDescription,
-                            String fullDescription, String category) {
-        DonationItem donation = new DonationItem(name, location, value, shortDescription, fullDescription,
-                category);
-        donations.add(donation);
-//        storeDonations();
-    }
-
-    public void addDonations(ArrayList<DonationItem> list) {
-        donations.addAll(donations);
-    }
-
-    public void setDonations(ArrayList<DonationItem> list) {
-        donations = list;
-    }
-
-    @SuppressLint("NewApi")
-    private ArrayList<DonationItem> search(Predicate<DonationItem> filter) {
-        ArrayList<DonationItem> result = new ArrayList<>();
-        for (DonationItem donation : this.donations) {
-            if (filter.test(donation)) {
-                result.add(donation);
-            }
-        }
-        return result;
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.N)
-    public ArrayList<DonationItem> searchByCategory(final Location location, final Category category) {
-        if (location.equals(locationManager.getAllLocation())) {
-            return search(new Predicate<DonationItem>() {
-                @Override
-                public boolean test(DonationItem donation) {
-                    return donation.getCategory().equals(category.toString());
-                }
-            });
-        } else {
-            return search(new Predicate<DonationItem>() {
-                @Override
-                public boolean test(DonationItem donation) {
-                    return donation.getLocation().toString().equals(location.toString()) && donation.getCategory().equals(category.toString());
-                }
-            });
-        }
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.N)
-    public ArrayList<DonationItem> searchByName(final Location location, final String name) {
-        if (location.equals(locationManager.getAllLocation())) {
-            return search(new Predicate<DonationItem>() {
-                @Override
-                public boolean test(DonationItem donation) {
-                    return donation.getShortDescription().equals(name);
-                }
-            });
-        } else {
-            return search(new Predicate<DonationItem>() {
-                @Override
-                public boolean test(DonationItem donation) {
-                    return donation.getLocation().toString().equals(location.toString()) && donation.getShortDescription().equals(name);
-                }
-            });
-        }
+    @Test
+    public void testDonationItemsManagerFail(){
+        donationManager.clearDonations();
+        donationManager.addDonation(donation1);
+        donationManager.addDonation(donation2);
+        donationManager.addDonation(donation3);
+        List<DonationItem> don = donationManager.getDonations();
+        assertEquals(donation1, don.get(0));
+        assertEquals(donation2, don.get(1));
+        assertNotSame(donation3, don.get(2));
+        assertEquals(donation1, donationManager.searchByCategory(location1, Category.CLOTHING).get(0));
+        assertEquals(donation2, donationManager.searchByCategory(location2, Category.BABY).get(0));
+        assertNotSame(donation3, donationManager.searchByCategory(location3, Category.TOYS).get(0));
     }
 }

@@ -29,12 +29,15 @@ public class DonationItemsManager {
         return donations;
     }
 
-    public void addDonation(String name, Location location, String value, String shortDescription,
-                            String fullDescription, String category) {
-        DonationItem donation = new DonationItem(name, location, value, shortDescription, fullDescription,
-                category);
+    public void addDonation(String time, Location location, String shortDescription,
+                            String fullDescription, String value, String category) {
+        DonationItem donation = new DonationItem(time, location, shortDescription, fullDescription,
+                value, category);
         donations.add(donation);
 //        storeDonations();
+    }
+    public void addDonation(DonationItem donation) {
+        donations.add(donation);
     }
 
     public void addDonations(ArrayList<DonationItem> list) {
@@ -92,5 +95,8 @@ public class DonationItemsManager {
                 }
             });
         }
+    }
+    public void clearDonations() {
+        donations.clear();
     }
 }

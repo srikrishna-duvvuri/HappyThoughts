@@ -1,4 +1,4 @@
-package cs2340.happythoughts.Controllers;
+package cs2340.happythoughts.controllers;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -13,10 +13,11 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
-import cs2340.happythoughts.Models.DonationItem;
-import cs2340.happythoughts.Models.DonationItemsManager;
-import cs2340.happythoughts.Models.Location;
-import cs2340.happythoughts.Models.LocationsManager;
+import cs2340.happythoughts.models.DonationItem;
+import cs2340.happythoughts.models.DonationItemsManager;
+import cs2340.happythoughts.models.Location;
+import cs2340.happythoughts.models.LocationsManager;
+import cs2340.happythoughts.controllers.MainActivity;
 import cs2340.happythoughts.R;
 
 public class AddDonationActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
