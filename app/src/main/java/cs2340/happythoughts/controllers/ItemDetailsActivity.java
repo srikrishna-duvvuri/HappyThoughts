@@ -26,9 +26,5 @@ public class ItemDetailsActivity extends AppCompatActivity {
         donationValue.setText("Value: " + getIntent().getStringExtra("value"));
         donationTime.setText("Time: " + getIntent().getStringExtra("time"));
         donationType.setText("Type: " + getIntent().getStringExtra("type"));
-
-
-
-
     }
 }
