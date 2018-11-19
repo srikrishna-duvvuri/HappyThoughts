@@ -33,9 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private static ArrayList<Location> locations;
     private ListView locationListView;
     public static final ArrayList<DonationItem> donationsList = new ArrayList<>();
-    public static String currentUser;
     private final LocationsManager locationsManager = LocationsManager.getInstance();
-    private DonationItemsManager donationItemsManager = DonationItemsManager.getInstance();
     private HashMap<String, String> userTypeForUser;
 
     @Override

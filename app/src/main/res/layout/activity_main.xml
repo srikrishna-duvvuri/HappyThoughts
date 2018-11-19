@@ -12,6 +12,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
         android:text="@string/logout"
+        android:layout_toStartOf="@id/addDonationButton"
         android:textColor="@android:color/white"/>
 
     <Button
@@ -20,6 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_toEndOf="@id/logoutButton"
         android:text="@string/add"
         android:textColor="@android:color/white" />
 

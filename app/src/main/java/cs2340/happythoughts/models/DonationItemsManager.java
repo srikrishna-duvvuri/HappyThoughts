@@ -34,7 +34,6 @@ public class DonationItemsManager {
         DonationItem donation = new DonationItem(time, location, shortDescription, fullDescription,
                 value, category);
         donations.add(donation);
-//        storeDonations();
     }
     public void addDonation(DonationItem donation) {
         donations.add(donation);
