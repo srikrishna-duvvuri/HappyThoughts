@@ -40,10 +40,6 @@ public class DonationItemsManager {
         donations.add(donation);
     }
 
-    public void setDonations(ArrayList<DonationItem> list) {
-        donations = list;
-    }
-
     @SuppressLint("NewApi")
     private ArrayList<DonationItem> search(Predicate<DonationItem> filter) {
         ArrayList<DonationItem> result = new ArrayList<>();
