@@ -62,6 +62,7 @@ public class SabrinaTest {
     @Test
     public void testDonationItemsManagerFail(){
         donationManager.clearDonations();
+        donation3.setTime("12:12");
         donationManager.addDonation(donation1);
         donationManager.addDonation(donation2);
         donationManager.addDonation(donation3);
