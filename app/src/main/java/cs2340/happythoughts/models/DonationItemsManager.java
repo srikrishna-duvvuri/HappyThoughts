@@ -37,10 +37,6 @@ public class DonationItemsManager {
 //        storeDonations();
     }
 
-    public void addDonations(ArrayList<DonationItem> list) {
-        donations.addAll(donations);
-    }
-
     public void setDonations(ArrayList<DonationItem> list) {
         donations = list;
     }

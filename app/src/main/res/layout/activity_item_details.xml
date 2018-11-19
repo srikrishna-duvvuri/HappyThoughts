@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:text="@string/textview"/>
 
     <TextView
@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:text="@string/textview"
         android:layout_below="@+id/LocationDisplay"/>
 
@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:text="@string/textview"
         android:layout_below="@id/ShortDescriptionDisplay"/>
 
@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:text="@string/textview"
         android:layout_below="@+id/LongDescriptionDisplay"/>
 
@@ -45,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:text="@string/textview"
         android:layout_below="@+id/AmountDisplay"/>
 
@@ -54,7 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:text="@string/textview"
         android:layout_below="@+id/TimeStampDisplay"/>
 </RelativeLayout>
