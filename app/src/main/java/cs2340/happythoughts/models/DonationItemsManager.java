@@ -29,12 +29,6 @@ public class DonationItemsManager {
         return donations;
     }
 
-    public void addDonation(String time, Location location, String shortDescription,
-                            String fullDescription, String value, String category) {
-        DonationItem donation = new DonationItem(time, location, shortDescription, fullDescription,
-                value, category);
-        donations.add(donation);
-    }
     public void addDonation(DonationItem donation) {
         donations.add(donation);
     }

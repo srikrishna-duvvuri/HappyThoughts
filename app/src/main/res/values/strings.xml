@@ -35,14 +35,12 @@
     <string name="there_are_no_items">There are no items</string>
     <string name="sign_in">Sign In</string>
     <string name="registration">Registration</string>
-
-
-
-
-
-    Name Search
-
-
+    <string name="donation_location">Location: %1$s</>
+    <string name="donation_short">Short Description: %1$s</>
+    <string name="donation_full">Full Description: %1$s</>
+    <string name="donation_value">Value: %1$s</>
+    <string name="donation_time">Time: %1$s</>
+    <string name="donation_type">Type: %1$s</>
 
 
 

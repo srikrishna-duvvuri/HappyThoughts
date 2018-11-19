@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import cs2340.happythoughts.models.DonationItem;
-import cs2340.happythoughts.models.DonationItemsManager;
 import cs2340.happythoughts.models.Location;
 import cs2340.happythoughts.models.LocationsManager;
 import cs2340.happythoughts.R;
