@@ -64,7 +64,7 @@ public class Location {
     /**
      * set the key
      *
-     * @param key
+     * @param key key
      */
     public void setKey(int key) {
         this.key = key;
@@ -82,7 +82,7 @@ public class Location {
     /**
      * sets the name
      *
-     * @param name
+     * @param name name
      */
     public void setName(String name) {
         this.name = name;
@@ -100,7 +100,7 @@ public class Location {
     /**
      * set the latitude
      *
-     * @param latitude
+     * @param latitude latitude
      */
     public void setLatitude(double latitude) {
         this.latitude = latitude;
@@ -118,7 +118,7 @@ public class Location {
     /**
      * set the longitude
      *
-     * @param  longitude
+     * @param  longitude longitude
      */
     public void setLongitude(double longitude) {
         this.longitude = longitude;
@@ -136,7 +136,7 @@ public class Location {
     /**
      * set the street address
      *
-     * @param streetAddress
+     * @param streetAddress streetAddress
      */
     public void setStreetAddress(String streetAddress) {
         this.streetAddress = streetAddress;
@@ -154,7 +154,7 @@ public class Location {
     /**
      * set the city
      *
-     * @param city
+     * @param city city
      */
     public void setCity(String city) {
         this.city = city;
@@ -172,7 +172,7 @@ public class Location {
     /**
      * set the state
      *
-     * @param state
+     * @param state state
      */
     public void setState(String state) {
         this.state = state;
@@ -190,7 +190,7 @@ public class Location {
     /**
      * set the zip
      *
-     * @param zip
+     * @param zip zip
      */
     public void setZip(String zip) {
         this.zip = zip;
@@ -208,7 +208,7 @@ public class Location {
     /**
      * set the type
      *
-     * @param type
+     * @param type type
      */
     public void setType(String type) {
         this.type = type;
@@ -226,7 +226,7 @@ public class Location {
     /**
      * set the phone number
      *
-     * @param phoneNumber
+     * @param phoneNumber phone
      */
     public void setPhoneNumber(String phoneNumber) {
         this.phone = phoneNumber;
@@ -244,7 +244,7 @@ public class Location {
     /**
      * set the website
      *
-     * @param  website
+     * @param  website site
      */
     public void setWebsite(String website) {
         this.website = website;

@@ -1,10 +1,8 @@
 package cs2340.happythoughts.controllers;
 
-import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,9 +13,6 @@ import android.widget.Toast;
 import cs2340.happythoughts.R;
 
 public class WelcomeActivity extends AppCompatActivity {
-
-    private int requestCode;
-    private int grantResults[];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +35,6 @@ public class WelcomeActivity extends AppCompatActivity {
                 goToRegistration();
             }
         });
-
-        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},requestCode);
-        onRequestPermissionsResult(requestCode,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},grantResults);
     }
 
     private void goToRegistration() {

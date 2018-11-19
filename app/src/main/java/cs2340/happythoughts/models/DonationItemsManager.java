@@ -37,22 +37,6 @@ public class DonationItemsManager {
         return donations;
     }
 
-    /** Adds a donation
-     *
-     * @param time time at that point
-     * @param location location at that point
-     * @param shortDescription short description at that point
-     * @param fullDescription full description at that point
-     * @param value value at that point
-     * @param category category at that point
-     */
-    public void addDonation(String time, Location location, String shortDescription,
-                            String fullDescription, String value, String category) {
-        DonationItem donation = new DonationItem(time, location, shortDescription, fullDescription,
-                value, category);
-        donations.add(donation);
-    }
-
     /**Adds a donation to the list
      *
      * @param donation the donation to be added
