@@ -11,8 +11,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import cs2340.happythoughts.models.DonationItem;
 import cs2340.happythoughts.models.DonationItemsManager;
 import cs2340.happythoughts.models.Location;
@@ -28,9 +26,7 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
     private TextView value;
     private Spinner location;
     private Spinner itemType;
-    private Button add;
-    private Button cancel;
-    private DonationItemsManager donationItemsManager = DonationItemsManager.getInstance();
+    private final DonationItemsManager donationItemsManager = DonationItemsManager.getInstance();
     private LocationsManager locationsManager = LocationsManager.getInstance();
 
     @Override
@@ -42,10 +38,10 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
         shortDescription = (EditText)findViewById(R.id.ShortDescription);
         fullDescription = (EditText)findViewById(R.id.FullDescription);
         value = (EditText)findViewById(R.id.Value);
-        location = (Spinner)findViewById(R.id.LocationSpinner);
-        itemType = (Spinner)findViewById(R.id.ItemSpinner);
-        add = (Button)findViewById(R.id.addDonation);
-        cancel = (Button)findViewById(R.id.cancelDonation);
+        location = findViewById(R.id.LocationSpinner);
+        itemType = findViewById(R.id.ItemSpinner);
+        Button add = findViewById(R.id.addDonation);
+        Button cancel = findViewById(R.id.cancelDonation);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.itemArray, R.layout.simple_spinner_item);
@@ -53,7 +49,7 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
         itemType.setAdapter(adapter);
         itemType.setOnItemSelectedListener(this);
 
-        ArrayAdapter<Location> adapter2 = new ArrayAdapter<Location>(this,
+        ArrayAdapter<Location> adapter2 = new ArrayAdapter<>(this,
                 R.layout.simple_spinner_item, MainActivity.getLocations());
         adapter2.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         location.setAdapter(adapter2);

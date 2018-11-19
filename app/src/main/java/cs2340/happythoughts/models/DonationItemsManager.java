@@ -12,7 +12,7 @@ public class DonationItemsManager {
 
     private static final DonationItemsManager instance = new DonationItemsManager();
 
-    private List<DonationItem> donations;
+    private final List<DonationItem> donations;
     private final LocationsManager locationManager;
 
 
